@@ -1,67 +1,34 @@
 # vscode-gtm README
+![](./GTMLogo-128.png)
 
-This is the README for your extension "vscode-gtm". After writing up a brief description, we recommend including the following sections.
+Visual Studio Code plugin to support Git Time Metrics
 
-
-
+From [git-time-metric/gtm](https://github.com/git-time-metric/gtm)
+>Git Time Metrics (GTM) is a tool to automatically track time spent reading and working on code that you store in a Git repository. By installing GTM and using supported plug-ins for your favorite editors, you can immediately realize better insight into how you are spending your time and on what files.
+>GTM is automatic, seamless and lightweight. There is no need to remember to start and stop timers. It's a process that only runs on occasion to capture edit events triggered by the editor. It does not require a background process or any file system monitoring.
+>Your time metrics are stored locally with the repository as Git notes. If you want to share your data, it can be pushed and fetched to and from the remote repository. Other GTM users on your team can do the same. This provides you the ability to see time metrics for the entire team.
 ## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- auto updates gtm everytime a file is saved
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. ```gtm``` must be installed locally and accessible on the ```$PATH``` ([installation instructions](https://github.com/git-time-metric/gtm#install-the-latest-gtm-release))
+2. In VSCode, open the command pallet, and type ```>ext install vscode-gtm```
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+none currently
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+only tested on Ubuntu, so may not work on OSX, other Linuxs, and/or Windows
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+Initial release of vscode-gtm
 
-Initial release of ...
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+### Notes
+Logo belongs to https://github.com/git-time-metric/gtm

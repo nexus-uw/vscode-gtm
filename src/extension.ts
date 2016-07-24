@@ -1,50 +1,28 @@
 'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-
+var spawn = require('child_process').spawn;
 
 function run_cmd(cmd, args, callBack) {
-      var spawn = require('child_process').spawn;
-      var child = spawn(cmd, args);
-      var resp = "";
-      child.on('error', function (code) { console.log('error');callBack(code) });
+  var child = spawn(cmd, args);
+  var resp = "";
+  child.on('error', function (code) { console.error('error', resp); callBack(code) });
+  child.stdout.on('data', function (buffer) { resp += buffer.toString() });
+  child.on('close', function (code) { callBack(code) });
+}
 
-      child.stdout.on('data', function (buffer) { resp += buffer.toString() });
-      child.on('close', function (code) {  console.log(resp); callBack(code) });
-
-    }
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "vscode-gtm" is now active!');
-
-  // check gtm exists + initd/
-
-      run_cmd('gtm',[], (res) => {
-        if (res < 0){
-          vscode.window.showErrorMessage('gtm is not avaliable on your $PATH. please install it first');
-        }
-      });
-
-
-
-  //}
-
+  // check if gtm is installed + avaliable
+  run_cmd('gtm', [], (res) => {
+    if (res < 0) {
+      vscode.window.showErrorMessage('gtm is not avaliable on your $PATH. please install it first');
+    }
+  });
   let subscriptions: vscode.Disposable[] = [];
 
+  // report time every time a file is saved
   vscode.workspace.onDidSaveTextDocument((e: vscode.TextDocument) => {
-
-
-    run_cmd('gtm', ['record', e.fileName], (res) => console.log(res))
-
+    run_cmd('gtm', ['record', e.fileName], (res) => console.log(res));
   }, this, subscriptions);
 }
 
-// this method is called when your extension is deactivated
-export function deactivate() {
-}
+// always active, so no need to deactivate
