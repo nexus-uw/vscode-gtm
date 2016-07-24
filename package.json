@@ -3,7 +3,7 @@
     "displayName": "vscode-gtm",
     "description": "VSCode plugin to support Git Time Metrics",
     "version": "0.0.1",
-    "publisher": "nexus-uw",
+    "publisher": "s3ramsay",
     "license": "MIT",
     "engines": {
         "vscode": "^1.0.0"
@@ -19,7 +19,7 @@
       "git time metrics",
       "time tracking"
     ],
-    "icon":"./GTMLogo-128.png",
+    "icon":"GTMLogo-128.png",
     "main": "./out/src/extension",
     "contributes": {
     },
