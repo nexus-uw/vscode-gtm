@@ -1,2 +1,7 @@
 [ver:1,total:60]
 src/extension.ts:60,1469502000:60,m
+
+[ver:1,total:2340]
+src/extension.ts:2200,1469415600:1200,1469419200:1000,m
+package.json:120,1469419200:120,m
+README.md:20,1469419200:20,m
