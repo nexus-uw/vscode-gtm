@@ -14,8 +14,8 @@ From [git-time-metric/gtm](https://github.com/git-time-metric/gtm)
 
 ## Requirements
 
-1. ```gtm``` must be installed locally and accessible on the ```$PATH``` ([installation instructions](https://github.com/git-time-metric/gtm#install-the-latest-gtm-release))
-2. In VSCode, open the command pallet, and type ```>ext install vscode-gtm```
+1. ```gtm``` must be installed locally, be at least 1.0.beta.8 and accessible on the ```$PATH``` ([installation instructions](https://github.com/git-time-metric/gtm#install-the-latest-gtm-release))
+2. In VSCode, open the command pallet, type ```>ext install``` and then search for ```vscode-gtm```
 
 ## Extension Settings
 
@@ -27,6 +27,10 @@ only tested on Ubuntu, so may not work on OSX, other Linuxs, and/or Windows
 
 ## Release Notes
 
+### 0.0.3
+
+Status bar now shows total uncommitted time
+
 ### 0.0.2
 
 Improved reporting logic to factor in changing current text file
@@ -34,8 +38,6 @@ Improved reporting logic to factor in changing current text file
 ### 0.0.1
 
 Initial release of vscode-gtm
-
-
 
 ### Notes
 Logo belongs to https://github.com/git-time-metric/gtm
