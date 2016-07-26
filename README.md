@@ -1,4 +1,6 @@
 # vscode-gtm README
+[![Build Status](https://travis-ci.org/nexus-uw/vscode-gtm.svg?branch=travis-ci)](https://travis-ci.org/nexus-uw/vscode-gtm)
+
 ![](./GTMLogo-128.png)
 
 Visual Studio Code plugin to support Git Time Metrics
