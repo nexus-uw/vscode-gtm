@@ -10,7 +10,7 @@ From [git-time-metric/gtm](https://github.com/git-time-metric/gtm)
 >GTM is automatic, seamless and lightweight. There is no need to remember to start and stop timers. It's a process that only runs on occasion to capture edit events triggered by the editor. It does not require a background process or any file system monitoring.
 >Your time metrics are stored locally with the repository as Git notes. If you want to share your data, it can be pushed and fetched to and from the remote repository. Other GTM users on your team can do the same. This provides you the ability to see time metrics for the entire team.
 ## Features
-- auto updates gtm everytime a file is saved
+- auto updates gtm everytime a file is saved + changed
 
 ## Requirements
 
@@ -27,9 +27,14 @@ only tested on Ubuntu, so may not work on OSX, other Linuxs, and/or Windows
 
 ## Release Notes
 
+### 0.0.2
+
+Improved reporting logic to factor in changing current text file
+
 ### 0.0.1
 
 Initial release of vscode-gtm
+
 
 
 ### Notes
