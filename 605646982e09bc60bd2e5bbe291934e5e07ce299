@@ -1,2 +1,13 @@
 [ver:1,total:120]
 README.md:120,1469502000:120,m
+
+[ver:1,total:0]
+
+[ver:1,total:0]
+
+[ver:1,total:540]
+src/extension.ts:180,1469502000:180,r
+LICENSE:150,1469502000:150,r
+README.md:90,1469502000:90,r
+package.json:60,1469502000:60,m
+.travis-ci:60,1469502000:60,m
