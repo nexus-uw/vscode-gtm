@@ -26,8 +26,8 @@ export function activate(context: vscode.ExtensionContext) {
   // check if gtm is installed + avaliable
   run_cmd('gtm', ['-v'])
     .then((res: Result) => {
-      if(res.output < 'v1.0-beta.8'){
-         vscode.window.showWarningMessage('Installed gtm version is below v1.0-beta.8. Please update your gtm installation.');
+      if(res.output < 'v1.0.0'){
+         vscode.window.showWarningMessage('Installed gtm version is below v1.0.0. Please update your gtm installation.');
        }
     }, (res: Result) => {
       if (res.code < 0) {
