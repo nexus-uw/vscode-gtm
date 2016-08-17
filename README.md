@@ -27,6 +27,10 @@ only tested on Ubuntu, so may not work on OSX, other Linuxs, and/or Windows
 
 ## Release Notes
 
+### 0.0.4
+
+updated to enfore gtm@1.0.0
+
 ### 0.0.3
 
 Status bar now shows total uncommitted time
