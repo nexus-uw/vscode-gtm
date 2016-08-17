@@ -14,7 +14,7 @@ From [git-time-metric/gtm](https://github.com/git-time-metric/gtm)
 
 ## Requirements
 
-1. ```gtm``` must be installed locally, be at least 1.0.beta.8 and accessible on the ```$PATH``` ([installation instructions](https://github.com/git-time-metric/gtm#install-the-latest-gtm-release))
+1. ```gtm``` must be installed locally, be at least 1.0.0 and accessible on the ```$PATH``` ([installation instructions](https://github.com/git-time-metric/gtm#install-the-latest-gtm-release))
 2. In VSCode, open the command pallet, type ```>ext install``` and then search for ```vscode-gtm```
 
 ## Extension Settings
@@ -23,7 +23,7 @@ none currently
 
 ## Known Issues
 
-only tested on Ubuntu, so may not work on OSX, other Linuxs, and/or Windows
+only tested on Ubuntu and OSX, so may not other Linuxs, and/or Windows
 
 ## Release Notes
 
