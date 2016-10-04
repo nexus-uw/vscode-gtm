@@ -29,7 +29,7 @@ only tested on Ubuntu and OSX, so may not other Linuxs, and/or Windows
 
 ### 0.0.4
 
-updated to enfore gtm@1.0.0
+updated to enforce gtm@1.0.0
 
 ### 0.0.3
 
