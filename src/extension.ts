@@ -39,12 +39,14 @@ export function activate(context: vscode.ExtensionContext) {
   let lastSavedFileName: string;
   const MIN_UPDATE_FREQUENCE_MS = 30000; // 30 seconds
 
+  let gtmStatusBar = new GTMStatusBar()
+
   function handleUpdateEvent(fileName: string){
     const now = new Date();
     // if a new file is being saved OR it have been at least MIN_UPDATE_FREQUENCE_MS, record it
     if (fileName !== lastSavedFileName || (now.getTime() - lastUpdated.getTime()) >= MIN_UPDATE_FREQUENCE_MS) {
       run_cmd('gtm', ['record', '--status', lastSavedFileName])
-        .then((res: Result) => vscode.window.setStatusBarMessage(res.output));
+        .then((res: Result) => gtmStatusBar.updateStatus(res.output));
       lastSavedFileName = fileName;
       lastUpdated = now;
     }
@@ -58,6 +60,29 @@ export function activate(context: vscode.ExtensionContext) {
 
   // report  to gtm everytime the user switches textEditors
   vscode.window.onDidChangeActiveTextEditor((e:vscode.TextEditor) => handleUpdateEvent(e.document.fileName), this, subscriptions);
+}
+
+class GTMStatusBar {
+  private statusBarItem: vscode.StatusBarItem;
+
+  public updateStatus(statusText: String) {
+
+      // Create as needed
+      if (!this.statusBarItem) {
+          this.statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+      }
+
+      // Get the current text editor
+      let editor = vscode.window.activeTextEditor;
+      if (!editor) {
+          this.statusBarItem.hide();
+          return;
+      }
+
+      // Update the status bar
+      this.statusBarItem.text = statusText;
+      this.statusBarItem.show();
+  }
 }
 
 // always active, so no need to deactivate
