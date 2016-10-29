@@ -65,7 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
 class GTMStatusBar {
   private statusBarItem: vscode.StatusBarItem;
 
-  public updateStatus(statusText: String) {
+  public updateStatus(statusText: string) {
 
       // Create as needed
       if (!this.statusBarItem) {
