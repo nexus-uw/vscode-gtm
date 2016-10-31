@@ -23,7 +23,7 @@ function run_cmd(cmd: string, args: string[]): Promise<Result> {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  // check if gtm is installed + avaliable
+  // check if gtm is installed + available
   run_cmd('gtm', ['-v'])
     .then((res: Result) => {
       if(res.output < 'v1.0.0'){
@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
        }
     }, (res: Result) => {
       if (res.code < 0) {
-        vscode.window.showErrorMessage('gtm is not avaliable on your $PATH. please install it first');
+        vscode.window.showErrorMessage('gtm is not available on your $PATH. please install it first');
       }
     });
   let subscriptions: vscode.Disposable[] = [];
