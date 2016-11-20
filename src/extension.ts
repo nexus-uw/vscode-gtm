@@ -29,7 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
          vscode.window.showWarningMessage('Installed gtm version is below v1.2.1. Please update your gtm installation.');
        }
     }, (res: Result) => {
-      if (res.code != 0) {
+      if (res.code < 0) {
         vscode.window.showErrorMessage('gtm is not available on your $PATH. please install it first');
       }
     });
