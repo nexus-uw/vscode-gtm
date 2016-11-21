@@ -23,7 +23,7 @@ function run_cmd(cmd: string, args: string[]): Promise<Result> {
 }
 export function activate(context: vscode.ExtensionContext) {
   // check if gtm is installed + available
-  run_cmd('gtm', ['verify', '1.2.1'])
+  run_cmd('gtm', ['verify', '>= 1.2.1'])
     .then((res: Result) => {
       if(res.output != 'true'){
          vscode.window.showWarningMessage('Installed gtm version is below v1.2.1. Please update your gtm installation.');
