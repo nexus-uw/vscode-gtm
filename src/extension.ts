@@ -21,13 +21,12 @@ function run_cmd(cmd: string, args: string[]): Promise<Result> {
     child.on('close', (code: number) => resolve(<Result>{ code, output }));
   });
 }
-
 export function activate(context: vscode.ExtensionContext) {
   // check if gtm is installed + available
-  run_cmd('gtm', ['-v'])
+  run_cmd('gtm', ['verify', '>= 1.2.1'])
     .then((res: Result) => {
-      if(res.output < 'v1.0.0'){
-         vscode.window.showWarningMessage('Installed gtm version is below v1.0.0. Please update your gtm installation.');
+      if(res.output != 'true'){
+         vscode.window.showWarningMessage('Installed gtm version is below v1.2.1. Please update your gtm installation.');
        }
     }, (res: Result) => {
       if (res.code < 0) {
