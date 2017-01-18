@@ -25,9 +25,9 @@ export function activate(context: vscode.ExtensionContext) {
   // check if gtm is installed + available
   run_cmd('gtm', ['verify', '>= 1.2.1'])
     .then((res: Result) => {
-      if(res.output != 'true'){
-         vscode.window.showWarningMessage('Installed gtm version is below v1.2.1. Please update your gtm installation.');
-       }
+      if (res.output != 'true') {
+        vscode.window.showWarningMessage('Installed gtm version is below v1.2.1. Please update your gtm installation.');
+      }
     }, (res: Result) => {
       if (res.code < 0) {
         vscode.window.showErrorMessage('gtm is not available on your $PATH. please install it first');
@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   let gtmStatusBar = new GTMStatusBar()
 
-  function handleUpdateEvent(fileName: string){
+  function handleUpdateEvent(fileName: string) {
     const now = new Date();
     // if a new file is being saved OR it have been at least MIN_UPDATE_FREQUENCE_MS, record it
     if (fileName !== lastSavedFileName || (now.getTime() - lastUpdated.getTime()) >= MIN_UPDATE_FREQUENCE_MS) {
@@ -55,10 +55,20 @@ export function activate(context: vscode.ExtensionContext) {
   vscode.workspace.onDidSaveTextDocument((e: vscode.TextDocument) => handleUpdateEvent(e.fileName), this, subscriptions);
 
   // report to gtm everytime the user's selection of text changes
-  vscode.window.onDidChangeTextEditorSelection((e:vscode.TextEditorSelectionChangeEvent) => handleUpdateEvent(e.textEditor.document.fileName), this, subscriptions);
+  vscode.window.onDidChangeTextEditorSelection((e: vscode.TextEditorSelectionChangeEvent) => {
+    if (e && e.textEditor && e.textEditor.document) {
+      handleUpdateEvent(e.textEditor.document.fileName);
+    }
+  }, this, subscriptions);
 
   // report  to gtm everytime the user switches textEditors
-  vscode.window.onDidChangeActiveTextEditor((e:vscode.TextEditor) => handleUpdateEvent(e.document.fileName), this, subscriptions);
+  vscode.window.onDidChangeActiveTextEditor((e: vscode.TextEditor) => {
+    // Note that the event also fires when the active editor changes to undefined.
+    if (e && e.document) {
+      handleUpdateEvent(e.document.fileName);
+    }
+
+  }, this, subscriptions);
 }
 
 class GTMStatusBar {
@@ -66,21 +76,21 @@ class GTMStatusBar {
 
   public updateStatus(statusText: string) {
 
-      // Create as needed
-      if (!this.statusBarItem) {
-          this.statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-      }
+    // Create as needed
+    if (!this.statusBarItem) {
+      this.statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+    }
 
-      // Get the current text editor
-      let editor = vscode.window.activeTextEditor;
-      if (!editor) {
-          this.statusBarItem.hide();
-          return;
-      }
+    // Get the current text editor
+    let editor = vscode.window.activeTextEditor;
+    if (!editor) {
+      this.statusBarItem.hide();
+      return;
+    }
 
-      // Update the status bar
-      this.statusBarItem.text = statusText;
-      this.statusBarItem.show();
+    // Update the status bar
+    this.statusBarItem.text = statusText;
+    this.statusBarItem.show();
   }
 }
 
