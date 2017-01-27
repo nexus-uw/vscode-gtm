@@ -2,7 +2,7 @@
     "name": "vscode-gtm",
     "displayName": "vscode-gtm",
     "description": "VSCode plugin to support Git Time Metrics",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "publisher": "s3ramsay",
     "license": "MIT",
     "engines": {
@@ -31,5 +31,8 @@
     "devDependencies": {
         "typescript": "^1.8.5",
         "vscode": "^0.11.0"
+    },
+    "repository": {
+        "url": " git@github.com:nexus-uw/vscode-gtm.git"
     }
 }

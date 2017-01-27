@@ -27,7 +27,7 @@ only tested on Ubuntu and OSX, so may not other Linuxs, and/or Windows
 
 ## Release Notes
 
-### 0.1.2
+### 0.2.0 (forgot-to-publish-patch)
 fixed issue [#12](https://github.com/nexus-uw/vscode-gtm/issues/12) and [#7](https://github.com/nexus-uw/vscode-gtm/issues/7)
 
 ### 0.1.1 (arbitrary minor version bump)
