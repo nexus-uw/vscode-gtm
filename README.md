@@ -1,4 +1,6 @@
 # vscode-gtm README
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/nexus-uw/vscode-gtm.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/nexus-uw/vscode-gtm.svg?branch=travis-ci)](https://travis-ci.org/nexus-uw/vscode-gtm)
 
 ![](./GTMLogo-128.png)
